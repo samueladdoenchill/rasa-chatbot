@@ -8,10 +8,14 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - thank_you
+  - make_enquires_time
+  - make_enquires_promo
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! How may I help you?"
+  - text: "Hey! How may I assist you today?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -25,9 +29,25 @@ responses:
 
   utter_goodbye:
   - text: "Bye"
+  - text: "See you later"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_make_enquires_time:
+  - text: "We are open between 8am and 5pm on weekdays"
+  - text: "Our business hours on weekdays are from 8am to 5pm."
+
+  utter_make_enquires_promo:
+  - text: "To enter promo dial *121#. Remember promo ends next week."
+  - text: "To participate in the promo, you can dial *121#, and kindly note that the promo will end next week."
+  - text: "o take part in the promo, you can enter by dialing *121#, and please be aware that the promotion will conclude next week."
+
+  utter_anything_else:
+  - text: "is there anything else I can help you with"
+
+  utter_what:
+  - text: "Please let me know"
 
 session_config:
   session_expiration_time: 60

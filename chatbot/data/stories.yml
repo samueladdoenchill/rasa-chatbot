@@ -4,15 +4,11 @@ stories:
 
 - story: happy path
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_great
   - action: utter_happy
 
 - story: sad path 1
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -21,10 +17,36 @@ stories:
 
 - story: sad path 2
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: make enquires
+  steps:
+  - intent: make_enquires_time
+  - action: utter_make_enquires_time
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: make enquires 1
+  steps:
+  - intent: make_enquires_time
+  - action: utter_make_enquires_time
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_what
+  - intent: make_enquires_promo
+  - action: utter_make_enquires_promo
+
+- story: make enquires 2
+  steps:
+  - intent: make_enquires_promo
+  - action: utter_make_enquires_promo
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_what
+  - intent: make_enquires_time
+  - action: utter_make_enquires_time
