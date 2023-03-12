@@ -133,7 +133,7 @@ nlu:
     - thank you bye
     - um okay thank you good bye
 
-- intent: make_enquires_time
+- intent: chitchat/ask_time
   examples: |
     - What time do you close?
     - What time are you open?
@@ -142,8 +142,22 @@ nlu:
     - When do you close?
     - What is your opening time?
 
-- intent: make_enquires_promo
+- intent: chitchat/ask_promo
   examples: |
     - How do I enter the promo?
     - What is the process to enter the promo?
     - What is the procedure for entering the promo?
+    - Are there any promotions available right now?
+    - Do you have any deals going on at the moment?
+    - Are there any limited time promotions I should know about?
+    - Is there a promo code I can use for my purchase?
+
+- intent: chitchat/ask_menu
+  examples: |
+    - May I see the menu before I order?
+    - Can you tell me about the items on your menu?
+    - Do you have a menu that I can browse?
+    - Can I see your menu?
+    - Do you have a menu available?
+    - Where can I find your menu?
+    - What do you have on your menu?
