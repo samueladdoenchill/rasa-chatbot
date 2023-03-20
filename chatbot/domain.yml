@@ -10,6 +10,33 @@ intents:
   - bot_challenge
   - thank_you
   - chitchat
+  - buy_pizza
+  - inform
+  - request_pizza_form
+
+entities:
+- pizza_size
+- pizza_type
+
+slots:
+  pizza_size:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+  pizza_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+
+forms:
+  simple_pizza_form:
+    required_slots:
+      - pizza_size
+      - pizza_type
 
 responses:
   utter_greet:
@@ -53,6 +80,34 @@ responses:
   utter_what:
   - text: "Please let me know"
 
+  utter_pizza_slots:
+  - text: I will order a {pizza_size} {pizza_type} pizza for you now.
+  - text: I'm going to order a {pizza_size} {pizza_type} for you now.
+  utter_submit:
+  - text: I will now order a pizza for you!
+  - text: I'm about to place an order for a pizza for you.
+  utter_ask_continue:
+  - text: Are you sure you want to stop the form?
+  utter_ask_pizza_size:
+  - text: What size would you like your pizza to be?
+  - text: May I know the preferred size of your pizza?
+  - text: What size of pizza do you have in mind?
+  utter_ask_pizza_type:
+  - text: What kind of pizza would you like to buy?
+  - text: What pizza flavor would you like to order?
+  - text: Which pizza variety would you like to buy?
+  - text: Could you please specify the kind of pizza you'd like to purchase?
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+actions:
+- utter_ask_continue
+- utter_goodbye
+- utter_greet
+- utter_pizza_slots
+- utter_submit
+- action_ask_pizza_type
+- action_ask_pizza_size
+- validate_simple_pizza_form
