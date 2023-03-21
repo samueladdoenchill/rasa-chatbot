@@ -14,6 +14,7 @@ intents:
   - inform
   - request_pizza_form
   - stop
+  - out_of_scope
 
 entities:
 - pizza_size
@@ -57,6 +58,16 @@ responses:
   utter_goodbye:
   - text: "Bye"
   - text: "See you later"
+
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+  - text: I apologize, but I am unable to process that request.
+  - text: I'm sorry, but I am not equipped to handle that particular request.
+
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: I'm sorry, I'm having difficulty understanding what you meant. Would you mind restating it in a different way?
+  - text: I apologize, I'm having trouble making sense of your message. Can you please rephrase it for me?
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."

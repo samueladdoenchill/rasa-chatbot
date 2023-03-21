@@ -54,3 +54,17 @@ stories:
   - intent: deny
   - action: simple_pizza_form
 
+- story: User interrupts the form and doesn't want to continue 2
+  steps:
+  - intent: buy_pizza
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+  - intent: stop
+  - action: utter_ask_continue
+  - or: 
+    - intent: stop
+    - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_stop_form
+  - action: utter_anything_else
