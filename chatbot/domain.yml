@@ -13,6 +13,7 @@ intents:
   - buy_pizza
   - inform
   - request_pizza_form
+  - stop
 
 entities:
 - pizza_size
@@ -75,19 +76,29 @@ responses:
     image: "https://payments.ipaygh.com/app/webroot/img/stores/MER02854-Papas_Pizza.jpeg"
     
   utter_anything_else:
-  - text: "is there anything else I can help you with"
+  - text: "is there anything else I can help you with?"
+  - text: "May I be of further assistance to you?"
+  - text: "Please do not hesitate to let me know if there is anything else that I may assist you with."
 
   utter_what:
   - text: "Please let me know"
+  utter_stop_form:
+  - text: "I have stopped your order"
+  - text: "I would like to inform you that your order has been stopped"
+  - text: "Kindly note that your order has been stopped."
 
   utter_pizza_slots:
-  - text: I will order a {pizza_size} {pizza_type} pizza for you now.
-  - text: I'm going to order a {pizza_size} {pizza_type} for you now.
+  - text: Perfect! Just to confirm, you would like a {pizza_size} {pizza_type} pizza. Is that correct?
+  - text: Excellent! To confirm, you have requested a {pizza_size} {pizza_type} pizza. Is this accurate?
+  - text: Excellent news! Your pizza is currently in the process of being prepared and will be on its way to you shortly. For your reference, your order includes a {pizza_size} {pizza_type} pizza. Please let me know if there is anything else I can assist you with today.
   utter_submit:
-  - text: I will now order a pizza for you!
-  - text: I'm about to place an order for a pizza for you.
+  - text: We are pleased to inform you that your pizza order has been successfully placed.
+  - text: Your pizza order has been successfully placed on your behalf.
+  - text: Your order for a pizza has been successfully placed.
   utter_ask_continue:
   - text: Are you sure you want to stop the form?
+  - text: I see. Just to confirm, would you like to stop the pizza order form?
+  - text: To confirm, would you like to terminate the pizza order form?
   utter_ask_pizza_size:
   - text: What size would you like your pizza to be?
   - text: May I know the preferred size of your pizza?
@@ -99,7 +110,7 @@ responses:
   - text: Could you please specify the kind of pizza you'd like to purchase?
 
 session_config:
-  session_expiration_time: 60
+  session_expiration_time: 180
   carry_over_slots_to_new_session: true
 
 actions:

@@ -59,7 +59,6 @@ class ValidateSImplePizzaForm(FormValidationAction):
         if slot_value not in ALLOWED_PIZZA_SIZES:
             dispatcher.utter_message(text=f"We only accept pizza sizes: {'/'.join(ALLOWED_PIZZA_SIZES)}.")
             return {"pizza_size": None}
-        dispatcher.utter_message(text=f"OK! You want to have a {slot_value} pizza.")
         return {"pizza_size": slot_value}
 
     def validate_pizza_type(
@@ -81,5 +80,5 @@ class ValidateSImplePizzaForm(FormValidationAction):
         #         text=f"I don't recognize that pizza. We serve {'/'.join(ALLOWED_PIZZA_TYPES)}."
         #     )
         #     return {"pizza_type": None}
-        dispatcher.utter_message(text=f"OK! You want to have a {slot_value} pizza.")
+        # dispatcher.utter_message(text=f"OK! You want to have a {slot_value} pizza.")
         return {"pizza_type": slot_value}

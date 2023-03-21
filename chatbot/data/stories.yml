@@ -4,11 +4,15 @@ stories:
 
 - story: happy path
   steps:
+  - intent: greet
+  - action: utter_greet
   - intent: mood_great
   - action: utter_happy
 
 - story: sad path 1
   steps:
+  - intent: greet
+  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -17,11 +21,36 @@ stories:
 
 - story: sad path 2
   steps:
+  - intent: greet
+  - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
 
+- story: User interrupts the form and doesn't want to continue
+  steps:
+  - intent: buy_pizza
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+  - intent: stop
+  - action: utter_ask_continue
+  - or: 
+    - intent: stop
+    - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_stop_form
+  - action: utter_anything_else
 
+- story: User interrupts the form and wants to continue
+  steps:
+  - intent: buy_pizza
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+  - intent: stop
+  - action: utter_ask_continue 
+  - intent: deny
+  - action: simple_pizza_form
 

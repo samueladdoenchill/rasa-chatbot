@@ -7,10 +7,11 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say utter goodmoring anytime the user greets
+- rule: utter greet anytime the user says greet
   steps:
   - intent: greet
   - action: utter_greet
+
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
@@ -21,6 +22,7 @@ rules:
   steps:
   - intent: chitchat
   - action: utter_chitchat
+  - action: utter_anything_else
 
 - rule: Activate Pizza Form
   steps:
@@ -37,3 +39,30 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_pizza_slots
+  - intent: affirm
+  - action: utter_submit
+  - action: utter_anything_else
+
+- rule: Interruption in Pizza Form
+  condition:
+  # Condition that form is active.
+  - active_loop: simple_pizza_form
+  steps:
+  # This unhappy path handles the case of an intent `bot_challenge`.
+  - intent: bot_challenge
+  - action: utter_iamabot
+  # Return to form after handling the `bot_challenge` intent
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+
+- rule: Interruption in Pizza Form 2
+  condition:
+  # Condition that form is active.
+  - active_loop: simple_pizza_form
+  steps:
+  # This unhappy path handles the case of an intent `bot_challenge`.
+  - intent: chitchat
+  - action: utter_chitchat
+  # Return to form after handling the `bot_challenge` intent
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form

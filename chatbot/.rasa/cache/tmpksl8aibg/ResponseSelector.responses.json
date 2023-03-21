@@ -1,0 +1,30 @@
+{
+  "utter_chitchat/ask_time": [
+    {
+      "text": "From Monday to Saturday, the hours of operation are between 10:00 AM and 12:00 AM. On Sunday, the hours of operation are between 11:00 AM and 12:00 AM."
+    },
+    {
+      "text": "The place is open seven days a week, but we start at 10:00 AM and close at midnight from Monday to Saturday, and on Sundays, we open an hour later at 11:00 AM but still close at midnight."
+    },
+    {
+      "text": "You can drop by this place any day of the week. Monday to Saturday we are open from 10:00 AM till midnight, and on Sundays, we open an hour later at 11:00 AM and close at midnight."
+    }
+  ],
+  "utter_chitchat/ask_promo": [
+    {
+      "text": "To enter promo dial *121#. Remember promo ends next week."
+    },
+    {
+      "text": "To participate in the promo, you can dial *121#, and kindly note that the promo will end next week."
+    },
+    {
+      "text": "o take part in the promo, you can enter by dialing *121#, and please be aware that the promotion will conclude next week."
+    }
+  ],
+  "utter_chitchat/ask_menu": [
+    {
+      "text": "Here's our menu, feel free to take a look.",
+      "image": "https://payments.ipaygh.com/app/webroot/img/stores/MER02854-Papas_Pizza.jpeg"
+    }
+  ]
+}
