@@ -11,34 +11,74 @@ intents:
   - thank_you
   - chitchat
   - buy_pizza
-  - inform
+  - buy_something
   - request_pizza_form
   - stop
   - out_of_scope
+  - product_help
+  - menu
+  - promo
+  - time
 
 entities:
-- pizza_size
-- pizza_type
+- size
+- types
+- brand
+- sex
+- occasion
+- product
 
 slots:
-  pizza_size:
+  size:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: pizza_size
-  pizza_type:
+      entity: size
+  types:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: pizza_type
+      entity: types
+  brand:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: brand
+  sex:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: sex
+  occasion:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: occasion
+  product:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: product
 
 forms:
   simple_pizza_form:
     required_slots:
-      - pizza_size
-      - pizza_type
+      - size
+      - types
+  product_form:
+    required_slots:
+      - product
+      - occasion
+      - size
+      - brand
+      - sex
+      - occasion
 
 responses:
   utter_greet:
@@ -72,17 +112,17 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_chitchat/ask_time:
+  utter_ask_time:
   - text: "From Monday to Saturday, the hours of operation are between 10:00 AM and 12:00 AM. On Sunday, the hours of operation are between 11:00 AM and 12:00 AM."
   - text: "The place is open seven days a week, but we start at 10:00 AM and close at midnight from Monday to Saturday, and on Sundays, we open an hour later at 11:00 AM but still close at midnight."
   - text: "You can drop by this place any day of the week. Monday to Saturday we are open from 10:00 AM till midnight, and on Sundays, we open an hour later at 11:00 AM and close at midnight."
   
-  utter_chitchat/ask_promo:
+  utter_ask_promo:
   - text: "To enter promo dial *121#. Remember promo ends next week."
   - text: "To participate in the promo, you can dial *121#, and kindly note that the promo will end next week."
   - text: "o take part in the promo, you can enter by dialing *121#, and please be aware that the promotion will conclude next week."
 
-  utter_chitchat/ask_menu:
+  utter_ask_menu:
   - text: "Here's our menu, feel free to take a look."
     image: "https://payments.ipaygh.com/app/webroot/img/stores/MER02854-Papas_Pizza.jpeg"
     
@@ -97,11 +137,14 @@ responses:
   - text: "I have stopped your order"
   - text: "I would like to inform you that your order has been stopped"
   - text: "Kindly note that your order has been stopped."
-
+  utter_product_slots:
+  - text: Perfect! Just to confirm, you would like a {size) sized {brand} {product} for a {sex}. Is that correct?
+  - text: Excellent! To confirm, you have requested a {size} sized {brand} {product} for a {sex}. Is this accurate?
+  - text: Excellent news! Your order is currently in the process of being prepared and will be on its way to you shortly. For your reference, your order includes a {size} sized {brand} {product} for a {sex}. Please let me know if there is anything else I can assist you with today.
   utter_pizza_slots:
-  - text: Perfect! Just to confirm, you would like a {pizza_size} {pizza_type} pizza. Is that correct?
-  - text: Excellent! To confirm, you have requested a {pizza_size} {pizza_type} pizza. Is this accurate?
-  - text: Excellent news! Your pizza is currently in the process of being prepared and will be on its way to you shortly. For your reference, your order includes a {pizza_size} {pizza_type} pizza. Please let me know if there is anything else I can assist you with today.
+  - text: Perfect! Just to confirm, you would like a {size} {type} pizza. Is that correct?
+  - text: Excellent! To confirm, you have requested a {size} {type} pizza. Is this accurate?
+  - text: Excellent news! Your pizza is currently in the process of being prepared and will be on its way to you shortly. For your reference, your order includes a {size} {type} pizza. Please let me know if there is anything else I can assist you with today.
   utter_submit:
   - text: We are pleased to inform you that your pizza order has been successfully placed.
   - text: Your pizza order has been successfully placed on your behalf.
@@ -121,7 +164,7 @@ responses:
   - text: Could you please specify the kind of pizza you'd like to purchase?
 
 session_config:
-  session_expiration_time: 180
+  session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
 actions:
@@ -130,6 +173,11 @@ actions:
 - utter_greet
 - utter_pizza_slots
 - utter_submit
-- action_ask_pizza_type
-- action_ask_pizza_size
+- action_ask_type
+- action_ask_size
 - validate_simple_pizza_form
+- action_ask_brand
+- action_ask_sex
+- action_ask_occasion
+- action_ask_product
+- validate_product_form

@@ -16,6 +16,8 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - help
+    - somebody
 
 - intent: goodbye
   examples: |
@@ -69,6 +71,9 @@ nlu:
     - please stop
     - i want to stop
     - stop the form
+    - I have changed my mind
+    - I want to buy something else
+    - I dont want to buy again
 
 - intent: mood_great
   examples: |
@@ -141,7 +146,7 @@ nlu:
     - thank you bye
     - um okay thank you good bye
 
-- intent: chitchat/ask_time
+- intent: time
   examples: |
     - What time do you close?
     - What time are you open?
@@ -150,7 +155,7 @@ nlu:
     - When do you close?
     - What is your opening time?
 
-- intent: chitchat/ask_promo
+- intent: promo
   examples: |
     - How do I enter the promo?
     - What is the process to enter the promo?
@@ -160,7 +165,7 @@ nlu:
     - Are there any limited time promotions I should know about?
     - Is there a promo code I can use for my purchase?
 
-- intent: chitchat/ask_menu
+- intent: menu
   examples: |
     - May I see the menu before I order?
     - Can you tell me about the items on your menu?
@@ -179,31 +184,73 @@ nlu:
     - can i buy a pizza
     - I'm interested in a savory round flattened bread of Italian origin
     - i want to buy a pizza
-    
-- intent: inform
+  
+- intent: product_help
   examples: |
-    - i'd like a [large](pizza_size) pizza
-    - i want to order a [xl](pizza_size) [hawai](pizza_type) pizza
-    - [medium](pizza_size) pizza
-    - [xl](pizza_size)
-    - [small](pizza_size)
-    - [s](pizza_size)
-    - [pepperoni](pizza_type)
-    - give me a [mozerella](pizza_type) pizza
-    - [hawaii](pizza_type) pizza
-    - [smol](pizza_size)
-    - [hawaii](pizza_type)
-    - i want a [large](pizza_size) pizza
-    - [mozzarella](pizza_type)
-    - [hawai](pizza_type)
-    - [veggie](pizza_type)
-    - [fungi](pizza_type)
-    - i want a [large](pizza_size) pizza
-    - [vegggie](pizza_type)
-    - [veggie](pizza_type)
+    - Hi, I'm interested in buying a [shirt](product). Can you help me find the right one?
+    - Hello, I'm looking for a [shirt](product) for a [formal](occasion) event. Can you recommend something suitable?
+    - Hi, I'm trying to find a [shirt](product) for a [male](sex). Can you help me pick one out?
+    - Hey, I'm looking for a [casual](event) [shirt](product) . Can you help me find one?
+    - Excuse me, I'm in search of a [Levi's](brand) [work](occasion) [shirt](product) for an upcoming event. Can you assist me in finding one?
+    - can you help me purchase a [Levi's](brand) [trouser](product) in size [medium](size) for [special](occasion)? I'm looking to buy one now
+    - I'm hoping to purchase a [Tommy Hilfiger](brand) [trouser](product) in size [large](size) for [formal](occasion). Would you be able to help me find one that fits my style?
+    - I'd like to buy a [large](size) [Calvin Klein](brand) [trouser](product) for [work](occasion). Do you have any available?"
+    - I'm thinking about buying [Polo](brand) [trouser](product) for [work](occasion). Can you help me locate a [trouser](product) that matches my style and fits well?
+    - I'm in the market for purchasing [sports](occasion) wear. Could you help me locate a suitable option?
+    - I'm exploring the idea of buying a [Calvin Klein](brand) [skirt](product). Can you lend me a hand in locating the item I need?
+    - I have decided to buy [extra large](product) [Tommy Hilfiger](brand) [skirt](product). Could you help me locate a suitable option?
+    - I am considering buying a [casual](occasion) [skirt](product). help me
+    - [Levi's](brand) [shirt](product). Can you help me locate a [trouser](product) that suits my personal taste?
+    - [formal](occasion) [Levi's](brand) [jeans](product). Can you give me some guidance in picking one out?
+    - [formal](occasion) [Tommy Hilfiger](brand) [jeans](product). somebody help
+    - [Tommy Hilfiger](brand). 
+    - [Calvin Klein](brand) [jeans](product). Could you assist me in choosing one?
+    - [casual](occasion) [Calvin Klein](brand). 
+    - [casual](occasion). Would you be able to assist me in finding what I'm looking for?
+    - [sports](occasion) [Polo](brand) [female](sex). Would anyone be able to assist me in finding what I'm looking for?
+    - [Polo](brand) [female](sex). Would somebody be able to assist me in finding what I'm looking for?
+    - [small](size) [sports](occasion) [female](sex). Would you be able to help me select one?
+    - [large](size) [special](occasion) [male](sex). Would you be able to help me select some?
+    - [extra large](size) [special](occasion) [male](sex). Would you be able to help me select a few?
+    - i'd like a [large](size) [pizza](product)
+    - i want to order a [xl](size) [hawai](types) [pizza](product)
+    - [medium](size) [pizza](product)
+    - [xl](size)
+    - [small](size)
+    - [s](size)
+    - [pepperoni](types)
+    - give me a [mozerella](types) [pizza](product)
+    - [hawaii](types) [pizza](product)
+    - [small](size)
+    - [hawaii](types)
+    - i want a [large](size) [pizza](product)
+    - [mozzarella](types)
+    - [hawai](types)
+    - [veggie](types)
+    - [fungi](types)
+    - i want a [large](size) [pizza](product)
+    - [vegggie](types)
+    - [veggie](types)
+   
+
 
 - intent: out_of_scope
   examples: |
     - I want to order food
     - What is 2 + 2?
     - Who's the US President?
+    - football
+    - betting
+    - chelsea
+    - manchester
+    - liverpool
+    - el classico
+    - Messi
+    - Ronaldo
+    - Arsenal
+    - PSG
+    - World cup
+    - church
+    - mosque
+    - christain
+    - muslim

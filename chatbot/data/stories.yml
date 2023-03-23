@@ -56,9 +56,9 @@ stories:
 
 - story: User interrupts the form and doesn't want to continue 2
   steps:
-  - intent: buy_pizza
-  - action: simple_pizza_form
-  - active_loop: simple_pizza_form
+  - intent: product_help
+  - action: product_form
+  - active_loop: product_form
   - intent: stop
   - action: utter_ask_continue
   - or: 
@@ -68,3 +68,13 @@ stories:
   - active_loop: null
   - action: utter_stop_form
   - action: utter_anything_else
+
+- story: User interrupts the form and wants to continue
+  steps:
+  - intent: product_help
+  - action: product_form
+  - active_loop: product_form
+  - intent: stop
+  - action: utter_ask_continue 
+  - intent: deny
+  - action: product_form

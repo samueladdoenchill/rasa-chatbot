@@ -18,12 +18,6 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: respond to chitchat
-  steps:
-  - intent: chitchat
-  - action: utter_chitchat
-  - action: utter_anything_else
-
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
@@ -65,14 +59,33 @@ rules:
   - action: simple_pizza_form
   - active_loop: simple_pizza_form
 
-- rule: Interruption in Pizza Form 2
+- rule: Activate Product Form
+  steps:
+  - intent: product_help
+  - action: product_form
+  - active_loop: product_form
+
+- rule: Submit Product Form
+  condition:
+  - active_loop: product_form
+  steps:
+  - action: product_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_product_slots
+  - intent: affirm
+  - action: utter_submit
+  - action: utter_anything_else
+
+- rule: Interruption in Product Form
   condition:
   # Condition that form is active.
-  - active_loop: simple_pizza_form
+  - active_loop: product_form
   steps:
   # This unhappy path handles the case of an intent `bot_challenge`.
-  - intent: chitchat
-  - action: utter_chitchat
+  - intent: bot_challenge
+  - action: utter_iamabot
   # Return to form after handling the `bot_challenge` intent
-  - action: simple_pizza_form
-  - active_loop: simple_pizza_form
+  - action: product_form
+  - active_loop: product_form
