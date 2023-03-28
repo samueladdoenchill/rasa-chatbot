@@ -116,21 +116,17 @@ responses:
   - text: "From Monday to Saturday, the hours of operation are between 10:00 AM and 12:00 AM. On Sunday, the hours of operation are between 11:00 AM and 12:00 AM."
   - text: "The place is open seven days a week, but we start at 10:00 AM and close at midnight from Monday to Saturday, and on Sundays, we open an hour later at 11:00 AM but still close at midnight."
   - text: "You can drop by this place any day of the week. Monday to Saturday we are open from 10:00 AM till midnight, and on Sundays, we open an hour later at 11:00 AM and close at midnight."
-  
   utter_ask_promo:
   - text: "To enter promo dial *121#. Remember promo ends next week."
   - text: "To participate in the promo, you can dial *121#, and kindly note that the promo will end next week."
   - text: "o take part in the promo, you can enter by dialing *121#, and please be aware that the promotion will conclude next week."
-
   utter_ask_menu:
   - text: "Here's our menu, feel free to take a look."
-    image: "https://payments.ipaygh.com/app/webroot/img/stores/MER02854-Papas_Pizza.jpeg"
-    
+    image: "https://payments.ipaygh.com/app/webroot/img/stores/MER02854-Papas_Pizza.jpeg"  
   utter_anything_else:
   - text: "is there anything else I can help you with?"
   - text: "May I be of further assistance to you?"
   - text: "Please do not hesitate to let me know if there is anything else that I may assist you with."
-
   utter_what:
   - text: "Please let me know"
   utter_stop_form:
@@ -162,7 +158,9 @@ responses:
   - text: What pizza flavor would you like to order?
   - text: Which pizza variety would you like to buy?
   - text: Could you please specify the kind of pizza you'd like to purchase?
-
+  utter_what_i_do:
+  - text: Please don't hesitate to ask for my help if you need information about the restaurant's menu, operating hours, or if you would like to place an order.
+  - text: If you have any questions regarding the menu, operating hours of the restaurant, or would like to place an order, feel free to ask for my assistance.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

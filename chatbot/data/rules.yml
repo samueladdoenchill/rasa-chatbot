@@ -22,6 +22,7 @@ rules:
   steps:
   - intent: out_of_scope
   - action: utter_out_of_scope
+  - action: utter_what_i_do
 
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
